@@ -16,7 +16,7 @@ public class test_01 {
         apples.add(a2);
         apples.add(a3);
         List<Apple> result = apples.stream().filter((Apple a)->"green".equals(a.getColor())||70<a.getWeight()).collect(Collectors.toList());
-    }/*
+    }
     public static boolean isGreenApple(Apple apple) {
         return "green".equals(apple.getColor());
     }
@@ -34,5 +34,5 @@ public class test_01 {
             }
         }
         return result;
-    }*/
+    }
 }
