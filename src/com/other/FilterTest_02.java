@@ -1,4 +1,4 @@
-package com.test;
+package com.other;
 
 import com.domin.Apple;
 
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class test1112 {
+public class FilterTest_02 {
     public static void  main(String[] args){
         List<String> arrayOfWords = new ArrayList<String>();
         arrayOfWords.add("Goodbye");

@@ -1,13 +1,10 @@
-package com.test;
+package com.other;
 
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 
-public class test1 {
+public class CheckDate {
     public static void  main(String[] args){
         String format = "HH:mm:ss";
         SimpleDateFormat sf = new SimpleDateFormat("HH:mm:ss");
