@@ -38,7 +38,7 @@ public class FilterTest_02 {
         apples.sort(Comparator.comparing(Apple::getWeight));
         System.out.print(biaozhun);
     }
-    private static <T> List<T> filter(List<T> list, Predicate<T> predicate) {
+    public static <T> List<T> filter(List<T> list, Predicate<T> predicate) {
         List<T> result = new ArrayList<>();
         for (T t : list) {
             if (predicate.test(t)) {
