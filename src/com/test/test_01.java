@@ -3,6 +3,7 @@ package com.test;
 import com.domin.Apple;
 import com.domin.Trader;
 import com.domin.Trader1;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.interFace.Consumer;
 import com.interFace.Function;
 import com.interFace.Predicate;
@@ -112,24 +113,50 @@ public class test_01 {
 
     @Test
     public void test_Close(){
-        /*int portNumber = 1337;
-        Runnable r = () -> System.out.println(portNumber);
-        apples.sort(Comparator.comparing(Apple::getColor)
-                .reversed()
-                .thenComparing(Apple::getWeight));
-        System.out.println("pp");*/
-        //判断年龄小于45岁
-        Trader1 raoul = new Trader1("Raoul", 94665600000L);
-        Trader1 mario = new Trader1("Mario",157737600000L);
-        Trader1 alan = new Trader1("Alan",157737600000L);
-        Trader1 brian = new Trader1("Brian",157737600000L);
+        /*//判断年龄小于45岁
+        Trader1 raoul = new Trader1("bb", 283968000000L);
+        Trader1 mario = new Trader1("Mario",283968000000L);
+        Trader1 alan = new Trader1("Alan",283968000000L);
+        Trader1 brian = new Trader1("Brian",283968000000L);
         List<Trader1> ss = Arrays.asList(raoul,mario,alan,brian);
+        boolean bb = ss.stream().noneMatch(e->Arrays.asList("aa","bb").contains(e.getName()));
+
+
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR)-45;
         calendar.clear();
         calendar.set(Calendar.YEAR, year);
         Long currYearFirst = calendar.getTime().getTime();
-        boolean b = ss.stream().noneMatch(e->e.getBirthday()<currYearFirst);
+        boolean b = false;
+        for(Trader1 t : ss){
+            if(t.getBirthday()<currYearFirst){
+                b = true;
+                break;
+            }
+        }*/
+
+
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR) - 45;
+        boolean b = false;
+            int substring = Integer.parseInt("413028197704133520".substring(6, 10));
+            if(substring<year){
+                b = true;
+        }
+    }
+    @Test
+    public void testMapTOList(){
+        String mapstr = "{\"param\":[{\"packageCode\":\"test01\"},{\"packageCode\":\"test01\"}]";
+        Map map = new HashMap();
+        map.put("param","[{\"packageCode\":\"test01\"},{\"packageCode\":\"test01\"}]");
+        String list =  ((String)map.get("param"));
+
+        List<Object> result =(List)ObjectMapper.readValue(list, Object.class);
+        for(Object obj : result){
+            Map<String,Object> mapp = (Map<String, Object>) obj;
+            String str = (String)mapp.get("packageCode");
+        }
+
     }
 
 }

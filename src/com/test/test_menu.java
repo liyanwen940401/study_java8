@@ -140,6 +140,9 @@ public class test_menu {
                 List::addAll);
     }
 
+    /**
+     * 测量并行流时间
+     */
     @Test
     public void test_jisuan(){
         System.out.println("Sequential sum done in:" +
@@ -150,6 +153,12 @@ public class test_menu {
 
         System.out.println("Parallel sum done in: " +
                 measureSumPerf(ParallelStreams::parallelSum, 10_000_000) + " msecs" );
+
+        System.out.println("Parallel sum done in: " +
+                measureSumPerf(ParallelStreams::rangedSum, 10_000_000) + " msecs" );
+
+        System.out.println("Parallel sum done in: " +
+                measureSumPerf(ParallelStreams::parallelRangedSum, 10_000_000) + " msecs" );
     }
     public long measureSumPerf(Function<Long, Long> adder, long n) {
         long fastest = Long.MAX_VALUE;
