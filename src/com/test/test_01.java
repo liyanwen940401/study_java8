@@ -42,12 +42,12 @@ public class test_01 {
     @Test
     public void test_compare(){
         System.out.println("oo");
-        /*apples.sort(new Comparator<Apple>() {
+        apples.sort(new Comparator<Apple>() {
             //compareTo这个方法Integer才有，int没有
             public int compare(Apple a1, Apple a2){
                 return a1.getWeight().compareTo(a2.getWeight());
             }
-        });*/
+        });
         apples.sort((Apple a,Apple b)->a.getWeight().compareTo(b.getWeight()));
         System.out.println("oo");
     }
